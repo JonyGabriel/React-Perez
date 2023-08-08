@@ -1,24 +1,26 @@
-import CartWidget from "./CartWidget/CartWidget"
+import "./NavBar.css";
+import CartWidget from "../CartWidget/CartWidget";
+import { NavLink, Link } from "react-router-dom";
+
 const NavBar = () => {
-  return (
-    <nav>
-      <h3 className="title">Compu SV</h3>
-      <div className="navs">
-        <div>
-        <button type="button" class="btn btn-outline-light">Graficas</button>
-        </div>
-        <div>
-        <button type="button" class="btn btn-outline-light">Hardware</button>
-        </div>
-          <div>
-          <button type="button" class="btn btn-outline-light">PC Armadas</button>
-        </div>
-        <div>
-        <CartWidget />
-        </div>
-      </div>
-    
-    </nav>
-  )
+
+    return (
+
+        <nav className="has-background-black" id="navbar" >
+            <Link to="/">
+                Home
+            </Link>
+
+            <NavLink to={`/category/graficas`} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}><h4>GRAFICAS</h4></NavLink>
+            <NavLink to={`/category/hardware`} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}> <h4>HARDWARE</h4></NavLink>
+            <NavLink to={`/category/procesadores`} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}><h4>PROCESADORES</h4></NavLink>
+            <NavLink to={`/category/pcarmadas`} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}><h4> PC ARMADAS</h4></NavLink>
+
+            <CartWidget/>
+
+        </nav >
+    )
+
 }
-export default NavBar
+
+export default NavBar;
